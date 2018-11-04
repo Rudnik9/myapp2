@@ -11,32 +11,45 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field form-group">
+    <%= form.label :name, class: "col-sm-6 control-label" %>
+    <div class="col-sm-6">
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="field form-group">
+    <%= form.label :description, class: "col-sm-6 control-label" %>
+    <div class="col-sm-6">
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
+  <div class="field form-group">
+    <%= form.label :image_url, class: "col-sm-6 control-label" %>
+    <div class="col-sm-6">
+      <%= form.text_field :image_url, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :colour %><br>
-    <%= form.text_field :colour %>
+  <div class="field form-group">
+    <%= form.label :colour, class: "col-sm-6 control-label" %>
+    <div class="col-sm-6">
+      <%= form.text_field :colour, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :price %><br>
-    <%= form.text_field :price %>
+  <div class="field form-group">
+    <%= form.label :price, class: "col-sm-6 control-label" %>
+    <div class="col-sm-6">
+      <%= form.text_field :price, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions form-group">
+    <div class="col-sm-6">
+      <%= form.submit 'Update Product', class: "btn btn-outline-success my-2 my-sm-0", type:"submit" %>
+    </div>
   </div>
+
 <% end %>
