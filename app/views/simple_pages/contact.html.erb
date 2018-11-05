@@ -1,5 +1,40 @@
 <h2>Contact us</h2>
 <p class="info-page-text">On our website we have selected the top bikes and listed their features - go ahead and get one online to cruise through the city with style! We understand, though, that you may prefer to see your dream bike live first. Feel free to drop by Alexanderstrasse 54 anytime from Monday to Friday from 9am till 6pm or just give us a ring on 175-175-1755.</p>
+
 <div class="container-fluid info-page-img">
-<%= image_tag("info-page-img2.jpg") %>
+  <%= flash[:notice] %>
+  <%= form_with(url:"/simple_pages/thank_you", method: "post", local: true) do |form| %>
+  <div class="row">
+
+    <div class="field form-group col-sm-12">
+      <%= form.label :name, class: "col-sm-12 control-label" %>
+      <div class="col-sm-12">
+        <%= form.text_field :name, class: "form-control", placeholder: "Your name" %>
+      </div>
+    </div>
+
+    <div class="field form-group col-sm-12">
+      <%= form.label :email, class: "col-sm-12 control-label" %>
+      <div class="col-sm-12">
+        <%= form.text_field :email, class: "form-control", placeholder: "Your Email" %>
+      </div>
+    </div>
+
+    <div class="field form-group col-sm-12">
+      <%= form.label :message, class: "col-sm-12 control-label" %>
+      <div class="col-sm-12">
+        <%= form.text_area :message, class: "form-control", placeholder: "Your Message" %>
+      </div>
+    </div>
+
+    <div class="actions form-group col-sm-12 contact-button">
+      <div class="col-sm-12">
+        <%= form.submit "Send", class: "btn btn-outline-success my-2 my-sm-0", type:"submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+    <%= image_tag("info-page-img2.jpg", class:"contact-photo") %>
+
 </div>
