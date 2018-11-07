@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ .alert-primary {
+   margin-bottom: 3%;
+ }
