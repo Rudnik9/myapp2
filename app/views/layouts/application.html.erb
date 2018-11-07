@@ -57,19 +57,25 @@
           <li class="nav-item">
             <%= link_to "Orders", orders_path, class:"nav-link" %>
           </li>
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to('Logout', destroy_user_session_path, method: :delete, class: "nav-link login-nav") %>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to('Login', new_user_session_path, class: "nav-link login-nav") %>
+          </li>
+          <% end %>
         </ul>
       </div>
     </nav>
 
-<!--
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", simple_pages_about_path %></li>
-        <li><%= link_to "Contact", simple_pages_contact_path %></li>
-      </ul>
--->
+    <div class="container login-notice">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
 
-    <%= yield %>
+      <%= yield %>
 
     <footer id="footer-content">
       <div class="container-fluid">
