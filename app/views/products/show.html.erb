@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h2><%= @product.name %></h2>
 
 <div class="container-fluid">
@@ -16,6 +14,7 @@
     <div class="col-sm-6">
       <%= image_tag(@product.image_url, class: "img-fluid product-pic-order") %>
       <%= render 'comments' %>
+        <%= will_paginate @comments %>
     </div>
   </div>
 </div>
