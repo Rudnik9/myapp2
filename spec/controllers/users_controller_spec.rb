@@ -5,8 +5,8 @@ describe UsersController, type: :controller do
   #let(:user2) { User.create!(email: "anothertest@test.com", password: "654321") }
 
   before do
-    @user = FactoryBot.create(user)
-    @user2 = FactoryBot.create(user)
+    @user = FactoryBot.create(:user)
+    @user2 = FactoryBot.create(:user)
   end
 
   describe 'GET #show' do
