@@ -9,6 +9,12 @@
       <strong>Price: </strong><%= @product.price %>&euro;<br>
       <strong>Average Rating: </strong><div class="rated" data-score="<%= @product.average_rating %>"></div><br><br>
 
+      <%= form_with(url: '/payments/create') do |form| %>
+        <%= render partial: "shared/stripe_checkout_button" %>
+      <% end %>
+
+      </br>
+
       <% if @product.comments.any? %>
         <p class="top-comment-displayed">
           "<%= @product.highest_rating_comment.body %>"
@@ -27,9 +33,7 @@
         <%= will_paginate @comments %>
     </div>
 
+
+
   </div>
 </div>
-
-<%= form_with(url: '/payments/create') do |form| %>
-  <%= render partial: "devise/shared/stripe_checkout_button" %>
-<% end %>
