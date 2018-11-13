@@ -29,7 +29,7 @@
     </div>
 
     <div class="col-sm-6">
-      <%= image_tag(@product.image_url, class: "img-fluid product-pic-order") %>
+      <%= image_tag(@product.image_url, class: "img-fluid product-pic-order img-zoom", data_zoom_image: @product.image_url) %>
       <%= render 'comments' %>
         <%= will_paginate @comments %>
     </div>
