@@ -18,6 +18,8 @@
 
         </br>
 
+
+
         <% if @product.comments.any? %>
           <p class="top-comment-displayed">
             "<%= @product.highest_rating_comment.body %>"
@@ -38,7 +40,7 @@
 
 
 
+      </div>
     </div>
-  </div>
 
 <% end %>
