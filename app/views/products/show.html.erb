@@ -1,40 +1,44 @@
-<h2><%= @product.name %></h2>
+<% cache @product do %>
 
-<div class="container-fluid">
-  <div class="row">
+  <h2><%= @product.name %></h2>
 
-    <div class="col-sm-6 product-order-list">
-      <strong>Description: </strong><%= @product.description %><br>
-      <strong>Colour: </strong><%= @product.colour %><br>
-      <strong>Price: </strong><%= @product.price %>&euro;<br>
-      <strong>Average Rating: </strong><div class="rated" id="stars-avg" data-score="<%= @product.average_rating %>"></div><br><br>
+  <div class="container-fluid">
+    <div class="row">
 
-      <%= form_with(url: '/payments/create') do |form| %>
-        <%= render partial: "shared/stripe_checkout_button" %>
-        <%= hidden_field_tag(:product_id, @product.id) %>
-      <% end %>
+      <div class="col-sm-6 product-order-list">
+        <strong>Description: </strong><%= @product.description %><br>
+        <strong>Colour: </strong><%= @product.colour %><br>
+        <strong>Price: </strong><%= @product.price %>&euro;<br>
+        <strong>Average Rating: </strong><div class="rated" id="stars-avg" data-score="<%= @product.average_rating %>"></div><br><br>
 
-      </br>
+        <%= form_with(url: '/payments/create') do |form| %>
+          <%= render partial: "shared/stripe_checkout_button" %>
+          <%= hidden_field_tag(:product_id, @product.id) %>
+        <% end %>
 
-      <% if @product.comments.any? %>
-        <p class="top-comment-displayed">
-          "<%= @product.highest_rating_comment.body %>"
-        </p>
-      <% end %>
+        </br>
 
-      <%= render 'new_comment' %><br>
-      <%= link_to 'Edit', edit_product_path(@product) %> |
-      <%= link_to 'Back', products_path %>
+        <% if @product.comments.any? %>
+          <p class="top-comment-displayed">
+            "<%= @product.highest_rating_comment.body %>"
+          </p>
+        <% end %>
+
+        <%= render 'new_comment' %><br>
+        <%= link_to 'Edit', edit_product_path(@product) %> |
+        <%= link_to 'Back', products_path %>
+
+      </div>
+
+      <div class="col-sm-6">
+        <%= image_tag(@product.image_url, class: "img-fluid product-pic-order img-zoom", data_zoom_image: @product.image_url) %>
+        <%= render 'comments' %>
+          <%= will_paginate @comments %>
+      </div>
+
+
 
     </div>
-
-    <div class="col-sm-6">
-      <%= image_tag(@product.image_url, class: "img-fluid product-pic-order img-zoom", data_zoom_image: @product.image_url) %>
-      <%= render 'comments' %>
-        <%= will_paginate @comments %>
-    </div>
-
-
-
   </div>
-</div>
+
+<% end %>
