@@ -102,4 +102,7 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'bikeworldberlin.herokuapp.com' }
 
+  config.web_socket_server_url = "wss://bikeworldberlin.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ['https://bikeworldberlin.herokuapp.com', 'http://bikeworldberlin.herokuapp.com']
+
 end

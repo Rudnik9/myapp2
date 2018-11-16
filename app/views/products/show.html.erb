@@ -1,5 +1,3 @@
-<% cache @product do %>
-
   <h2><%= @product.name %></h2>
 
   <div class="container-fluid">
@@ -33,14 +31,14 @@
       </div>
 
       <div class="col-sm-6">
-        <%= image_tag(@product.image_url, class: "img-fluid product-pic-order img-zoom", data_zoom_image: @product.image_url) %>
+
+        <% cache @product do %>
+          <%= image_tag(@product.image_url, class: "img-fluid product-pic-order img-zoom", data_zoom_image: @product.image_url) %>
+        <% end %>
+        <div class="alert alert-info" style="display:none" role="alert">A new comment has been posted!</div>
         <%= render 'comments' %>
           <%= will_paginate @comments %>
       </div>
 
-
-
       </div>
     </div>
-
-<% end %>
