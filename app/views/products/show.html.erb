@@ -1,7 +1,7 @@
   <h2><%= @product.name %></h2>
 
   <div class="container-fluid">
-    <div class="row">
+    <div class="row" data-product-id="<%= @product.id %>">
 
       <div class="col-sm-6 product-order-list">
         <strong>Description: </strong><%= @product.description %><br>
