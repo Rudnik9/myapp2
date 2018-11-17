@@ -26,6 +26,7 @@ class PaymentsController < ApplicationController
           total: @product.price
         )
         flash[:success] = "Your payment has been accepted."
+        UserMailer.order_confirmation_email(@user, @product).deliver_now
       end
 
     rescue Stripe::CardError => e

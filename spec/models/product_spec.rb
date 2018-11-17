@@ -15,8 +15,18 @@ describe Product do
       expect(product.average_rating).to eq 3.0
     end
 
-    it "is not valid without a name" do
+    it "is not valid without a review" do
       expect(Product.new(description: "Nice bike")).not_to be_valid
+    end
+
+    it "returns the highest rating comment" do
+      expect(product.highest_rating_comment.rating).to eq 5
+      expect(product.highest_rating_comment.body).to eq "Great bike!"
+    end
+
+    it "returns the lowest rating comment" do
+      expect(product.lowest_rating_comment.rating).to eq 1
+      expect(product.lowest_rating_comment.body).to eq "Awful bike!"
     end
 
   end
